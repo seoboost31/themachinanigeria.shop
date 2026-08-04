@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Machine Nigeria — Heavy Equipment & Industrial Machinery</title>
+<meta name="description" content="The Machine Nigeria — construction, agricultural and power equipment sourced, inspected and delivered across Nigeria.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#1B1E20;
+    --charcoal-2:#25292C;
+    --steel:#4A535A;
+    --steel-light:#8B949B;
+    --yellow:#F2B705;
+    --rust:#D65A31;
+    --off-white:#F3F1EC;
+    --line: rgba(243,241,236,0.12);
+    --radius: 2px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background: var(--charcoal);
+    color: var(--off-white);
+    font-family: 'Barlow', sans-serif;
+    font-weight:400;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Barlow Condensed', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    font-weight:800;
+    line-height:1.05;
+  }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 24px; }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color: var(--yellow);
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{
+    content:''; width:22px; height:2px; background: var(--yellow); display:inline-block;
+  }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline:2px solid var(--yellow); outline-offset:3px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background: rgba(27,30,32,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 24px;
+  }
+  .logo{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:800; font-size:1.35rem; letter-spacing:0.01em;
+    display:flex; align-items:center; gap:10px;
+  }
+  .logo .mark{
+    width:11px; height:11px; background:var(--yellow);
+    transform:rotate(45deg);
+  }
+  .logo span.sub{
+    font-family:'IBM Plex Mono', monospace; font-size:0.6rem; color:var(--steel-light);
+    text-transform:uppercase; letter-spacing:0.12em; font-weight:400;
+    display:block; margin-top:2px;
+  }
+  nav.links{ display:flex; gap:34px; }
+  nav.links a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem; text-transform:uppercase; letter-spacing:0.06em;
+    color: var(--steel-light);
+    transition:color 0.2s;
+  }
+  nav.links a:hover{ color: var(--yellow); }
+  .btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem; letter-spacing:0.06em; text-transform:uppercase;
+    padding:12px 22px;
+    border:1px solid var(--yellow);
+    color:var(--charcoal);
+    background:var(--yellow);
+    cursor:pointer;
+    transition: all 0.2s;
+    display:inline-block;
+  }
+  .btn:hover{ background:transparent; color:var(--yellow); }
+  .btn-ghost{
+    background:transparent; color:var(--off-white); border:1px solid var(--line);
+  }
+  .btn-ghost:hover{ border-color:var(--yellow); color:var(--yellow); }
+  .menu-toggle{ display:none; background:none; border:none; color:var(--off-white); font-size:1.6rem; cursor:pointer; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:96px 0 70px;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .hero::before{
+    content:'';
+    position:absolute; inset:0;
+    background:
+      repeating-linear-gradient(115deg, transparent 0 78px, rgba(242,183,5,0.045) 78px 80px),
+      radial-gradient(ellipse at 80% 15%, rgba(214,90,49,0.14), transparent 55%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative; z-index:1;
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:60px; align-items:end;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 5.4vw, 4.6rem);
+    color:var(--off-white);
+  }
+  .hero h1 em{ font-style:normal; color:var(--yellow); }
+  .hero p.lede{
+    max-width:480px; margin-top:24px; color:var(--steel-light); font-size:1.05rem;
+  }
+  .hero-actions{ display:flex; gap:14px; margin-top:36px; flex-wrap:wrap; }
+  .plate{
+    border:1px solid var(--line);
+    background:var(--charcoal-2);
+    padding:22px 22px 18px;
+  }
+  .plate-row{
+    display:flex; justify-content:space-between;
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem;
+    padding:9px 0; border-bottom:1px dashed var(--line);
+    color:var(--steel-light);
+  }
+  .plate-row:last-child{ border-bottom:none; }
+  .plate-row span.v{ color:var(--off-white); }
+  .plate-title{
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem;
+    letter-spacing:0.14em; text-transform:uppercase; color:var(--yellow);
+    margin-bottom:14px; display:block;
+  }
+
+  /* ---------- MARQUEE / TRUST STRIP ---------- */
+  .strip{
+    border-bottom:1px solid var(--line);
+    background:var(--charcoal-2);
+    padding:16px 0;
+    overflow:hidden;
+    white-space:nowrap;
+  }
+  .strip-inner{
+    display:inline-flex; gap:60px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem;
+    color:var(--steel-light); letter-spacing:0.05em; text-transform:uppercase;
+    animation: scroll-strip 28s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce){ .strip-inner{ animation:none; } }
+  @keyframes scroll-strip{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+  .strip-inner span{ color:var(--yellow); margin-right:8px; }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding:88px 0; border-bottom:1px solid var(--line); }
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:24px; margin-bottom:48px; flex-wrap:wrap;
+  }
+  .section-head h2{ font-size:clamp(1.9rem, 3.4vw, 2.7rem); }
+  .section-head p{ color:var(--steel-light); max-width:360px; }
+
+  /* ---------- CATEGORIES ---------- */
+  .cat-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line);
+  }
+  .cat-card{
+    background:var(--charcoal); padding:34px 26px; min-height:190px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    transition: background 0.2s;
+  }
+  .cat-card:hover{ background:var(--charcoal-2); }
+  .cat-num{ font-family:'IBM Plex Mono', monospace; color:var(--rust); font-size:0.8rem; }
+  .cat-card h3{ font-size:1.4rem; margin-top:20px; }
+  .cat-card p{ color:var(--steel-light); font-size:0.88rem; margin-top:8px; }
+
+  /* ---------- CATALOG ---------- */
+  .catalog-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:26px;
+  }
+  .item{
+    border:1px solid var(--line);
+    background:var(--charcoal-2);
+    display:flex; flex-direction:column;
+  }
+  .item-media{
+    height:170px; position:relative;
+    background:
+      linear-gradient(135deg, #2C3135 25%, transparent 25%) -10px 0/22px 22px,
+      linear-gradient(225deg, #2C3135 25%, transparent 25%) -10px 0/22px 22px,
+      #23272A;
+    display:flex; align-items:center; justify-content:center;
+    border-bottom:1px solid var(--line);
+  }
+  .item-media .tag{
+    position:absolute; top:12px; left:12px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.65rem;
+    letter-spacing:0.08em; text-transform:uppercase;
+    background:var(--yellow); color:var(--charcoal); padding:4px 9px;
+  }
+  .item-media .icon{ font-size:2.6rem; opacity:0.8; }
+  .item-body{ padding:22px; flex:1; display:flex; flex-direction:column; }
+  .item-body h3{ font-size:1.25rem; letter-spacing:0.01em; }
+  .item-body .desc{ color:var(--steel-light); font-size:0.88rem; margin:10px 0 16px; flex:1; }
+  .spec-row{
+    display:flex; justify-content:space-between; font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem; color:var(--steel-light); padding:6px 0; border-top:1px solid var(--line);
+  }
+  .spec-row span.v{ color:var(--off-white); }
+  .item-footer{
+    display:flex; justify-content:space-between; align-items:center;
+    margin-top:16px; padding-top:14px; border-top:1px solid var(--line);
+  }
+  .price{ font-family:'IBM Plex Mono', monospace; color:var(--yellow); font-size:0.95rem; }
+  .link-arrow{
+    font-family:'IBM Plex Mono', monospace; font-size:0.75rem; color:var(--off-white);
+    display:inline-flex; align-items:center; gap:6px;
+  }
+
+  /* ---------- STATS ---------- */
+  .stats{
+    display:grid; grid-template-columns:repeat(4,1fr);
+    border:1px solid var(--line);
+  }
+  .stat{ padding:32px 26px; border-right:1px solid var(--line); }
+  .stat:last-child{ border-right:none; }
+  .stat .num{ font-family:'Barlow Condensed', sans-serif; font-weight:800; font-size:2.6rem; color:var(--yellow); }
+  .stat .label{ font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--steel-light); text-transform:uppercase; letter-spacing:0.06em; margin-top:6px; }
+
+  /* ---------- PROCESS ---------- */
+  .process{ display:grid; grid-template-columns:repeat(4,1fr); gap:26px; }
+  .proc-step .idx{ font-family:'IBM Plex Mono', monospace; color:var(--rust); font-size:0.85rem; }
+  .proc-step h3{ font-size:1.3rem; margin:14px 0 8px; }
+  .proc-step p{ color:var(--steel-light); font-size:0.88rem; }
+  .proc-line{ height:1px; background:var(--line); margin:22px 0 0; position:relative; }
+
+  /* ---------- TESTIMONIAL ---------- */
+  .testi{
+    display:grid; grid-template-columns:1fr 1fr; gap:0;
+    border:1px solid var(--line);
+  }
+  .testi-quote{ padding:48px; border-right:1px solid var(--line); }
+  .testi-quote p.q{ font-family:'Barlow Condensed', sans-serif; font-size:1.6rem; font-weight:600; line-height:1.35; text-transform:none; letter-spacing:0; }
+  .testi-quote .who{ margin-top:22px; font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--steel-light); }
+  .testi-quote .who b{ color:var(--yellow); }
+  .testi-side{ padding:48px; background:var(--charcoal-2); }
+  .testi-side .plate-row span.v{ color:var(--yellow); }
+
+  /* ---------- CTA / CONTACT ---------- */
+  .cta{
+    display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;
+  }
+  .cta h2{ font-size:clamp(2rem, 4vw, 3rem); }
+  .cta p{ color:var(--steel-light); margin-top:16px; max-width:420px; }
+  .cta-list{ margin-top:28px; }
+  .cta-list li{ list-style:none; font-family:'IBM Plex Mono', monospace; font-size:0.85rem; color:var(--steel-light); padding:10px 0; border-top:1px solid var(--line); }
+  .cta-list li:first-child{ border-top:none; }
+  .cta-list li b{ color:var(--off-white); }
+
+  form{ display:flex; flex-direction:column; gap:14px; }
+  .field{ display:flex; flex-direction:column; gap:6px; }
+  .field label{ font-family:'IBM Plex Mono', monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--steel-light); }
+  .field input, .field select, .field textarea{
+    background:var(--charcoal-2); border:1px solid var(--line); color:var(--off-white);
+    padding:13px 14px; font-family:'Barlow', sans-serif; font-size:0.95rem;
+  }
+  .field textarea{ resize:vertical; min-height:90px; }
+  .field input:focus, .field select:focus, .field textarea:focus{ border-color:var(--yellow); outline:none; }
+  .row2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .form-note{ font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--steel-light); margin-top:4px; }
+
+  /* ---------- FOOTER ---------- */
+  footer{ padding:44px 0; }
+  .foot-grid{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; }
+  .foot-links{ display:flex; gap:26px; }
+  .foot-links a{ font-family:'IBM Plex Mono', monospace; font-size:0.75rem; color:var(--steel-light); }
+  .foot-links a:hover{ color:var(--yellow); }
+  .copyright{ font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--steel-light); }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    nav.links{ display:none; }
+    .menu-toggle{ display:block; }
+    .hero-grid{ grid-template-columns:1fr; }
+    .cat-grid{ grid-template-columns:repeat(2,1fr); }
+    .catalog-grid{ grid-template-columns:repeat(2,1fr); }
+    .stats{ grid-template-columns:repeat(2,1fr); }
+    .stat{ border-bottom:1px solid var(--line); }
+    .process{ grid-template-columns:repeat(2,1fr); }
+    .testi{ grid-template-columns:1fr; }
+    .testi-quote{ border-right:none; border-bottom:1px solid var(--line); }
+    .cta{ grid-template-columns:1fr; }
+  }
+  @media (max-width:560px){
+    .cat-grid{ grid-template-columns:1fr; }
+    .catalog-grid{ grid-template-columns:1fr; }
+    .stats{ grid-template-columns:1fr; }
+    .stat{ border-right:none; }
+    .process{ grid-template-columns:1fr; }
+    .row2{ grid-template-columns:1fr; }
+    .hero{ padding:70px 0 50px; }
+    section{ padding:60px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav wrap">
+    <a href="#top" class="logo">
+      <span class="mark"></span>
+      <div>THE MACHINE<br><span class="sub">Nigeria · Heavy Equipment</span></div>
+    </a>
+    <nav class="links">
+      <a href="#categories">Categories</a>
+      <a href="#catalog">Catalog</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Request Quote</a>
+    </nav>
+    <a href="#contact" class="btn">Get a Quote</a>
+    <button class="menu-toggle" aria-label="Menu">≡</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-bottom:none; padding-bottom:0;">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Lagos · Abuja · Port Harcourt · Nationwide Delivery</div>
+        <h1>Heavy equipment,<br><em>built for Nigeria's</em><br>terrain.</h1>
+        <p class="lede">We source, inspect and deliver construction, agricultural and power equipment across all 36 states — with genuine spec sheets, verified condition reports, and financing on request.</p>
+        <div class="hero-actions">
+          <a href="#catalog" class="btn">Browse Catalog</a>
+          <a href="#contact" class="btn btn-ghost">Talk to a Specialist</a>
+        </div>
+      </div>
+      <div class="plate">
+        <span class="plate-title">Nameplate — Fleet Overview</span>
+        <div class="plate-row"><span>Units in stock</span><span class="v">214</span></div>
+        <div class="plate-row"><span>Categories</span><span class="v">Construction · Agri · Power · Industrial</span></div>
+        <div class="plate-row"><span>Inspection</span><span class="v">140-point, pre-delivery</span></div>
+        <div class="plate-row"><span>Warranty</span><span class="v">Up to 12 months</span></div>
+        <div class="plate-row"><span>Delivery window</span><span class="v">5–14 working days</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="strip-inner">
+      <span>▸</span> EXCAVATORS <span>▸</span> WHEEL LOADERS <span>▸</span> GENERATORS <span>▸</span> TIPPER TRUCKS <span>▸</span> RICE MILLS <span>▸</span> TRACTORS <span>▸</span> CONCRETE MIXERS <span>▸</span> BOREHOLE RIGS <span>▸</span>
+      EXCAVATORS <span>▸</span> WHEEL LOADERS <span>▸</span> GENERATORS <span>▸</span> TIPPER TRUCKS <span>▸</span> RICE MILLS <span>▸</span> TRACTORS <span>▸</span> CONCRETE MIXERS <span>▸</span> BOREHOLE RIGS <span>▸</span>
+    </div>
+  </div>
+
+  <section id="categories">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Shop by category</h2>
+        <p>Four core lines, each inspected and rated before it reaches your site.</p>
+      </div>
+      <div class="cat-grid">
+        <div class="cat-card">
+          <div class="cat-num">01</div>
+          <div>
+            <h3>Construction</h3>
+            <p>Excavators, loaders, graders, compactors.</p>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-num">02</div>
+          <div>
+            <h3>Agriculture</h3>
+            <p>Tractors, tillers, rice mills, irrigation pumps.</p>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-num">03</div>
+          <div>
+            <h3>Power &amp; Energy</h3>
+            <p>Diesel generators, inverters, solar hybrid rigs.</p>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-num">04</div>
+          <div>
+            <h3>Industrial</h3>
+            <p>Mixers, borehole rigs, workshop machinery.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="catalog">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Featured equipment</h2>
+        <p>A sample of current stock. Full catalog available on request.</p>
+      </div>
+      <div class="catalog-grid">
+
+        <div class="item">
+          <div class="item-media"><span class="tag">In stock</span><span class="icon">🚜</span></div>
+          <div class="item-body">
+            <h3>CAT 320 Excavator</h3>
+            <p class="desc">Mid-size hydraulic excavator, ideal for site clearing and foundation work.</p>
+            <div class="spec-row"><span>Operating weight</span><span class="v">20.3t</span></div>
+            <div class="spec-row"><span>Condition</span><span class="v">Refurbished, Grade A</span></div>
+            <div class="item-footer">
+              <span class="price">₦ On request</span>
+              <a href="#contact" class="link-arrow">Request quote →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-media"><span class="tag">In stock</span><span class="icon">⚡</span></div>
+          <div class="item-body">
+            <h3>Perkins 100kVA Genset</h3>
+            <p class="desc">Silent-canopy diesel generator, built for continuous commercial use.</p>
+            <div class="spec-row"><span>Output</span><span class="v">100kVA / 80kW</span></div>
+            <div class="spec-row"><span>Condition</span><span class="v">Brand new</span></div>
+            <div class="item-footer">
+              <span class="price">₦ On request</span>
+              <a href="#contact" class="link-arrow">Request quote →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-media"><span class="tag">Pre-order</span><span class="icon">🌾</span></div>
+          <div class="item-body">
+            <h3>Massey Ferguson 375 Tractor</h3>
+            <p class="desc">75HP row-crop tractor with disc plough attachment included.</p>
+            <div class="spec-row"><span>Horsepower</span><span class="v">75HP</span></div>
+            <div class="spec-row"><span>Condition</span><span class="v">Refurbished, Grade A</span></div>
+            <div class="item-footer">
+              <span class="price">₦ On request</span>
+              <a href="#contact" class="link-arrow">Request quote →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-media"><span class="tag">In stock</span><span class="icon">🏗️</span></div>
+          <div class="item-body">
+            <h3>SDLG 956 Wheel Loader</h3>
+            <p class="desc">High-capacity front loader for quarry, road and material handling work.</p>
+            <div class="spec-row"><span>Bucket capacity</span><span class="v">3.0 m³</span></div>
+            <div class="spec-row"><span>Condition</span><span class="v">Brand new</span></div>
+            <div class="item-footer">
+              <span class="price">₦ On request</span>
+              <a href="#contact" class="link-arrow">Request quote →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-media"><span class="tag">In stock</span><span class="icon">🧱</span></div>
+          <div class="item-body">
+            <h3>JZC350 Concrete Mixer</h3>
+            <p class="desc">Diesel-powered mobile mixer, suited for small to mid-size sites.</p>
+            <div class="spec-row"><span>Drum capacity</span><span class="v">350L</span></div>
+            <div class="spec-row"><span>Condition</span><span class="v">Brand new</span></div>
+            <div class="item-footer">
+              <span class="price">₦ On request</span>
+              <a href="#contact" class="link-arrow">Request quote →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-media"><span class="tag">Limited</span><span class="icon">🛠️</span></div>
+          <div class="item-body">
+            <h3>Borehole Drilling Rig</h3>
+            <p class="desc">Truck-mounted rig for water borehole and geotechnical drilling.</p>
+            <div class="spec-row"><span>Max depth</span><span class="v">150m</span></div>
+            <div class="spec-row"><span>Condition</span><span class="v">Refurbished, Grade A</span></div>
+            <div class="item-footer">
+              <span class="price">₦ On request</span>
+              <a href="#contact" class="link-arrow">Request quote →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat"><div class="num">214</div><div class="label">Units in stock</div></div>
+        <div class="stat"><div class="num">36</div><div class="label">States delivered to</div></div>
+        <div class="stat"><div class="num">140-pt</div><div class="label">Inspection checklist</div></div>
+        <div class="stat"><div class="num">9 yrs</div><div class="label">Sourcing experience</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How it works</h2>
+        <p>From enquiry to delivery, four steps, no surprises.</p>
+      </div>
+      <div class="process">
+        <div class="proc-step">
+          <div class="idx">01</div>
+          <h3>Request a quote</h3>
+          <p>Tell us the equipment, spec and location — we respond within 24 hours.</p>
+          <div class="proc-line"></div>
+        </div>
+        <div class="proc-step">
+          <div class="idx">02</div>
+          <h3>Inspection report</h3>
+          <p>We share a full condition report and photos before you commit.</p>
+          <div class="proc-line"></div>
+        </div>
+        <div class="proc-step">
+          <div class="idx">03</div>
+          <h3>Secure payment</h3>
+          <p>Pay in full or arrange financing through our partner lenders.</p>
+          <div class="proc-line"></div>
+        </div>
+        <div class="proc-step">
+          <div class="idx">04</div>
+          <h3>Nationwide delivery</h3>
+          <p>Equipment delivered and commissioned at your site.</p>
+          <div class="proc-line"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="testi">
+        <div class="testi-quote">
+          <p class="q">"We ordered two wheel loaders for a quarry site in Ogun State. Delivery took nine days and both machines matched the inspection report exactly."</p>
+          <div class="who"><b>Adewale O.</b> — Site Manager, Ogun State</div>
+        </div>
+        <div class="testi-side">
+          <span class="plate-title">Why buyers choose us</span>
+          <div class="plate-row"><span>Verified condition reports</span><span class="v">✓</span></div>
+          <div class="plate-row"><span>Transparent pricing</span><span class="v">✓</span></div>
+          <div class="plate-row"><span>Spare parts support</span><span class="v">✓</span></div>
+          <div class="plate-row"><span>Financing partners</span><span class="v">✓</span></div>
+          <div class="plate-row"><span>Nationwide logistics</span><span class="v">✓</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="border-bottom:none;">
+    <div class="wrap cta">
+      <div>
+        <div class="eyebrow">Get in touch</div>
+        <h2>Tell us what<br>you're building.</h2>
+        <p>Share your equipment needs and site location — a specialist will get back to you with pricing and availability.</p>
+        <ul class="cta-list">
+          <li><b>Phone / WhatsApp:</b> +234 800 000 0000</li>
+          <li><b>Email:</b> sales@themachinanigeria.shop</li>
+          <li><b>Head office:</b> Lagos, Nigeria — showroom by appointment</li>
+        </ul>
+      </div>
+      <form id="quoteForm">
+        <div class="row2">
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" placeholder="e.g. Chinedu Okafor" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input id="phone" name="phone" type="tel" placeholder="+234" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="category">Equipment category</label>
+          <select id="category" name="category" required>
+            <option value="">Select category</option>
+            <option>Construction</option>
+            <option>Agriculture</option>
+            <option>Power & Energy</option>
+            <option>Industrial</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="location">Delivery location</label>
+          <input id="location" name="location" type="text" placeholder="State / City">
+        </div>
+        <div class="field">
+          <label for="message">What do you need?</label>
+          <textarea id="message" name="message" placeholder="Equipment type, quantity, budget range..."></textarea>
+        </div>
+        <button type="submit" class="btn">Submit Request</button>
+        <p class="form-note">We reply within 24 hours on business days.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="copyright">© <span id="year"></span> The Machine Nigeria. All rights reserved.</div>
+    <div class="foot-links">
+      <a href="#categories">Categories</a>
+      <a href="#catalog">Catalog</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const form = document.getElementById('quoteForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    const originalText = btn.textContent;
+    btn.textContent = 'Request Sent ✓';
+    btn.style.background = 'transparent';
+    btn.style.color = 'var(--yellow)';
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.style.background = 'var(--yellow)';
+      btn.style.color = 'var(--charcoal)';
+      form.reset();
+    }, 2500);
+  });
+
+  // Mobile menu toggle (simple show/hide of nav links)
+  const toggle = document.querySelector('.menu-toggle');
+  const links = document.querySelector('nav.links');
+  toggle.addEventListener('click', () => {
+    const isOpen = links.style.display === 'flex';
+    links.style.display = isOpen ? 'none' : 'flex';
+    links.style.flexDirection = 'column';
+    links.style.position = 'absolute';
+    links.style.top = '100%';
+    links.style.left = '0';
+    links.style.right = '0';
+    links.style.background = 'var(--charcoal-2)';
+    links.style.padding = '20px 24px';
+    links.style.borderBottom = '1px solid var(--line)';
+    links.style.gap = '18px';
+  });
+</script>
+
+</body>
+</html>
